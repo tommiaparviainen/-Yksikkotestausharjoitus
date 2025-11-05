@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -88,7 +88,7 @@ namespace account_testing0
             }
 
             public bool Transaction(double val)
-            {
+            { //tsekkaus pois päältä kommentoimalla
             //  if (val >= 0)
             // {
             balance += val;
