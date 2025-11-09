@@ -1,0 +1,248 @@
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using unit_code;
+
+namespace UnitTestProject1harj2
+{
+    [TestClass]
+    public class UnitTest1
+    {
+        [TestMethod]
+        public void Account_1_1()
+        { 
+            //arrange
+            int value = 10;
+            double balance, expectedBalance = 10.0;
+            Account account1 = new Account(1);
+            Account account2 = new Account(1);
+
+
+
+            //act
+
+            account1.Transaction(10.0); //fix, now acc has balance
+
+            //(from, to, value)
+            new Transaction(account1, account2, value);
+            balance = account2.Balance;
+
+            //assert 
+            Assert.AreEqual(expectedBalance, balance);
+        }
+
+        [TestMethod]
+        public void Account_1_2()
+        {
+
+            //arrange
+            double value = 10.1;
+            double balance, expectedBalance = 10.1;
+            Account account1 = new Account(1);
+            Account account2 = new Account(1);
+
+
+            //act
+
+            account1.Transaction(10.1);
+
+            //(from, to, value)
+            new Transaction(account1, account2, value);
+            balance = account2.Balance;
+
+            //assert 
+            Assert.AreEqual(expectedBalance, balance);
+
+
+        }
+
+        [TestMethod]
+        public void Account_1_3()
+        {
+
+            //arrange
+            double value = 10.1;
+            double balance, expectedBalance = 20.2;
+            Account account1 = new Account(1);
+            Account account2 = new Account(1);
+
+
+            //act
+
+            account1.Transaction(20.2); //adding balance 
+            
+
+            //(from, to, value)
+            new Transaction(account1, account2, value);
+            new Transaction(account1, account2, value);
+            balance = account2.Balance;
+
+            //assert 
+            Assert.AreEqual(expectedBalance, balance);
+
+
+        }
+
+
+        [TestMethod]
+        public void Account_1_4()
+        {
+
+            //arrange
+            double value = -10.2;
+            double balance, expectedBalance = -10.2;
+            Account account1 = new Account(1);
+            Account account2 = new Account(1);
+
+
+            //act
+
+            account1.Transaction(20.2); //adding balance 
+
+
+            //(from, to, value)
+            new Transaction(account1, account2, value);
+            
+            balance = account2.Balance;
+
+            //assert 
+            Assert.AreEqual(expectedBalance, balance);
+
+        }
+        [TestMethod]
+        public void Account_1_5()
+        {
+
+            //arrange
+            double value = 10.5;
+            double balance, expectedBalance = 10.5;
+            Account account1 = new Account(1);
+            Account account2 = new Account(1);
+
+
+            //act
+
+            account1.Transaction(10.0); //adding balance 
+
+
+            //(from, to, value)
+            new Transaction(account1, account2, value);
+            new Transaction(account1, account2, value);
+            balance = account2.Balance;
+
+            //assert 
+            Assert.AreEqual(expectedBalance, balance);
+
+
+        }
+
+        [TestMethod]
+        public void Account_1_6()
+        {
+
+            //arrange
+            double value = 0.0;
+            double balance, expectedBalance = 0.0;
+            Account account1 = new Account(1);
+            Account account2 = new Account(1);
+
+
+            //act
+
+            account1.Transaction(10.0); //adding balance 
+
+
+            //(from, to, value)
+            new Transaction(account1, account2, value);
+            new Transaction(account1, account2, value);
+            balance = account2.Balance;
+
+            //assert 
+            Assert.AreEqual(expectedBalance, balance);
+
+
+        }
+
+        [TestMethod]
+        public void Account_1_7()
+        {
+
+            //arrange
+            double value = 5.5;
+            double balance, expectedBalance = 5.5;
+            Account account1 = new Account(1);
+            Account account2 = new Account(1);
+
+
+            //act
+
+            account1.Transaction(10.0); //adding balance 
+
+
+            //(from, to, value)
+            var transaction = new Transaction(account1, account2, value);
+            balance = account2.Balance;
+            DateTime now = DateTime.Now;
+            DateTime transactionTime = transaction.Time;
+
+            //assert 
+            Assert.AreEqual(expectedBalance, balance);
+            Assert.IsTrue((now - transactionTime).TotalSeconds < 0.5); //timecheck
+
+        }
+
+        [TestMethod]
+        public void Account_1_8()
+        {
+
+            //arrange
+            double value = 15.5;
+            double balance, expectedBalance = 15.5;
+            Account account1 = new Account(1);
+           
+
+
+            //act
+
+            account1.Transaction(15.5); //adding balance 
+
+
+            //(from, to, value)
+            new Transaction(account1, account1, value);
+            
+            balance = account1.Balance;
+
+            //assert 
+            Assert.AreEqual(expectedBalance, balance);
+
+
+        }
+
+        [TestMethod]
+        public void Account_1_9()
+        {
+
+            //arrange
+            double value = 3000000.0;
+            double balance, expectedBalance = 3000000.0;
+            Account account1 = new Account(1);
+            Account account2 = new Account(1);
+
+
+
+            //act
+
+            account1.Transaction(3000000.0); //adding balance 
+
+
+            //(from, to, value)
+            new Transaction(account1, account2, value);
+
+            balance = account2.Balance;
+
+            //assert 
+            Assert.AreEqual(expectedBalance, balance);
+
+
+        }
+    }
+}
